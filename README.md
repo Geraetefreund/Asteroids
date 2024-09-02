@@ -1,2 +1,2 @@
 # Asteroids
-boot.dev assignemt to write an asteroids clone.
+boot.dev assignment to write an asteroids clone.
