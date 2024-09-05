@@ -15,4 +15,16 @@ class Asteroid(CircleShape):
         self.position += self.velocity * dt
 
     def split(self):
-        pass
+        self.kill()
+        if self.radius <= ASTEROID_MIN_RADIUS:
+            return
+        else:
+            random_angle = random.uniform(20, 50)
+            new_radius = self.radius - ASTEROID_MIN_RADIUS
+            new_velocity1 = self.velocity.rotate(random_angle)
+            new_velocity2 = self.velocity.rotate(-random_angle)
+            split1 = Asteroid(self.position.x, self.position.y, new_radius)
+            split1.velocity = new_velocity1 * 1.2
+            split2 = Asteroid(self.position.x, self.position.y, new_radius)
+            split2.velocity = new_velocity2 * 1.2
+
